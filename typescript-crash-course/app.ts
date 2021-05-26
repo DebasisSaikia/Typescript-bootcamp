@@ -5,11 +5,14 @@
 //   age: 24,
 //   role: "UI Lead and Frontend Engineer",
 // };
+
 // console.log(person);
+
 // ===================better syntax
-var person = {
-    name: "Debasis Saikia",
-    age: 24,
-    role: "UI lead and frontend engineer"
+const person = {
+  name: "Debasis Saikia",
+  age: 24,
+  role: "UI lead and frontend engineer",
 };
+
 console.log(person.role);
