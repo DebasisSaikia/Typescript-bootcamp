@@ -1,36 +1,34 @@
-// Object type
-// const person: { name: string; age: number; role: string } = {
-//   //blank {} is same as assigning object after colon;
-//   name: "Debasis",
-//   age: 24,
-//   role: "UI Lead and Frontend Engineer",
-// };
+// enum type
 
-// console.log(person);
+// const Admin = 1; not convenient
 
-// ===================better syntax
-const person: {
-  name: string;
-  age: number;
-  roles: string[];
-  tup: [number, string];
-} = {
-  name: "Debasis Saikia",
+// VALUES ALWAYS STARTS FROM 0 BUT WE CAN ASSIGN THE STARTING VALUE AND REST WILL FOLLOW THE PATTERN
+enum Role {
+  ADMIN = 5, //ASSINGING START VALUE .WE CAN ALSO ASSIGN STRING .FOR EG : ADMIN='ADMIN1'
+  READ_ONLY,
+  AUTHOR,
+}
+
+const person = {
+  name: "Debasis",
   age: 24,
-  roles: ["UI lead", "Frontend Engineer"], //array of string
-  tup: [1, "Learn"], //tuples are of fixed length and types,we cannot assign other type fo value or add new elements
+  role: Role.ADMIN,
 };
 
-person.tup.push("More"); //we can do this
-// person.tup[1]=10 we cannot do this or person.tup=[0,'learn','more']
-
-// type inferencing
-let roles: string[]; //array of string
-roles = ["UI dev"]; //only string can be added, any other data types will show an error ,'any'[] can be used instead of string[] to add multiple data types
-
-console.log(person.roles);
-
-// accessing array with for loop
-for (const role of person.roles) {
-  console.log(role.toUpperCase());
+if (person.role === Role.ADMIN) {
+  console.log("Admin only");
 }
+
+// ===================================UNION TYPES========================
+function combine(input1: number | string, input2: number | string) {
+  let result;
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+
+  return result;
+}
+console.log(combine(20, 30));
+console.log(combine("deba", "sis"));
