@@ -7,3 +7,4 @@ function add(x: any, y: any) {
 }
 
 add(1, 3)
+add(3, 4)
