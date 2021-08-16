@@ -52,3 +52,9 @@ interface Dimension {
 }
 
 const dimension = { x: 2, y: '3', z: 'dsjd' }
+
+// downlevelling--- tsc --target es2015 index.ts 'here date is optional'
+function greet(person: string, date?: Date) {
+    console.log(`Hello ${person}, today is ${date.toDateString()}!`);
+}
+greet("Maddison", new Date());
