@@ -5,8 +5,6 @@ interface User{
 }
 
 type UserOptionals=Partial<User>
-type Read=Readonly<User>
-
 const merge=(user:User,overrides:UserOptionals):User=>{
     return  {...user,...overrides}
 }

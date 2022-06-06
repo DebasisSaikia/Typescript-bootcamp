@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { FC } from 'react';
 import './App.css';
+
+const Heading=({title}:{title:string})=><h2>{title}</h2>
+
+const List:FC<{items:string[]}>=({items})=>(
+  <ul>
+    {items?.map((item,ind)=><li key={ind}>{item}</li>)}
+  </ul>
+)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Heading title={"Hello Typescript"}/>
+      <List items={["one","two","three"]} />
     </div>
   );
 }
