@@ -41,3 +41,19 @@ function gen<T>(initial:T):[()=>T,(v:T)=>void]{
 
 const [strGet,strSet]=gen<string|number>('Hello')
 console.log(strGet());
+
+
+// keyof
+
+function extract<DataType, KeyType extends keyof DataType>(items:DataType[],key:KeyType){
+    return items?.map((item)=>item[key])
+}
+
+const pets=[
+    {name:'Thulu',age:2},
+    {name:'Charlie',age:3}
+]
+
+console.log(extract(pets,'name'))
+
+
