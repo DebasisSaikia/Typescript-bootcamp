@@ -21,7 +21,23 @@ function simpleStr(initial:string):[()=>string,(v:string)=>void]{
  ]
 }
 
-const [str1get,str2set]=simpleStr('Hello')
+// const [str1get,str2set]=simpleStr('Hello')
 
-console.log(str1get());
-str2set("Godbye")
+// console.log(str1get());
+// str2set("Godbye")
+
+
+
+// GENERICS
+function gen<T>(initial:T):[()=>T,(v:T)=>void]{
+    let str:T=initial
+    return [
+        ()=>str,
+        (v:T)=>(
+            str=v
+        )
+    ]
+}
+
+const [strGet,strSet]=gen<string|number>('Hello')
+console.log(strGet());
