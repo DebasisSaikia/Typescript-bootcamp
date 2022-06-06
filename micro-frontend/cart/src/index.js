@@ -13,14 +13,14 @@ const data=[
     }
 ]
 
-let productString="";
+let productString=`<div>You have ${data?.length} item in your cart</div>`;
 
 // for(let i=0;i<5;i++){
 //     productString+=`<div>${faker.commerce.productName()}</div>`
 // }
 
-data?.map((item)=>{
-    return productString+=`<div>${item?.name}</div>`
-})
+// data?.map((item)=>{
+//     return productString+=`<div>${item?.name}</div>`
+// })
 
 document.querySelector('#cart_list').innerHTML=productString
