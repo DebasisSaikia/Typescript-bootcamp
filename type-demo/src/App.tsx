@@ -19,7 +19,22 @@ interface Todo{
   text:string
 }
 
-type ActionType=|{type:'ADD',text:string}|{type:'REMOVE',text:string}
+// type ActionType=|{type:'ADD',text:string}|{type:'REMOVE',text:string}
+
+
+const Incrementor:FC<{value:number,setValue:React.Dispatch<React.SetStateAction<number>>}>=({value,setValue})=>(
+  <button onClick={()=>setValue(value+1)}>
+    Add-{value}
+  </button>
+)
+
+// function UL<T>({items}:{items:T[],render:(item:T)=>React.ReactNode}){
+//   return (
+//     <ul>
+
+//     </ul>
+//   )
+// }
 
 function App() {
   const [checkedState,setCheckState]=React.useState<Payload|null>(null)
@@ -34,11 +49,14 @@ function App() {
   //       ]
   //   }
   // },[])
+
+  const [value,setValue]=React.useState<number>(0)
   return (
     <div className="App">
       <Heading title={"Hello Typescript"}/>
       <List items={["one","two","three"]} />
       <input type="text" placeholder='Enter name' ref={ref} />
+      <Incrementor value={value} setValue={setValue} />
     </div>
   );
 }
