@@ -23,4 +23,4 @@ data?.map((item)=>{
     return productString+=`<div>${item?.name}</div>`
 })
 
-document.querySelector('#product_list').innerHTML=productString
+document.querySelector('#cart_list').innerHTML=productString
