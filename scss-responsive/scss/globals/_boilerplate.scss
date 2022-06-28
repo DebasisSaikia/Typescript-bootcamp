@@ -1,3 +1,6 @@
+@use '../utils' as u;
+//wildcard @use '../utils' as * . we dont need to do u.font
+
 html {
   font-size: 100%;
 }
@@ -10,8 +13,10 @@ html {
   box-sizing: inherit;
 }
 body {
-  background-color: #eee;
+  background-color: var(--backgroundColor);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  // font-family: utils.$primaryFont; //name space
+  font-family: u.$primaryFont;
 }
